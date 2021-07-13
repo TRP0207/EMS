@@ -1,0 +1,48 @@
+{% extends 'Emp_profile/base.html' %}
+
+{% block content %}
+<br><br><br><br>
+<div class="container">
+    <div class="carousel-item active">
+        <div class="carousel-container">
+            <div class="animate__animated animate__fadeInDown">
+                <h2>{{obj.first_name}} {{obj.last_name}}'s Details</h2>
+                <br>
+                <br>
+                Name : {{ obj.first_name }} {{obj.last_name}}
+                <hr>
+                Employee Id : {{ obj.employee_id}}
+                <hr>
+                Email Id : {{ obj.email}}
+                <hr>
+                Department : {{obj.department}}
+                <hr>
+                Job title : {{obj.job_title}}
+                <hr>
+                Date of join : {{obj.doj}}
+                <hr>
+                Employeement Types : {{obj.employeement_type}}
+                <hr>
+                Address : {{obj.address}}
+                <hr>
+                City : {{ obj.city}}
+                <hr>
+                Pin Code : {{obj.pin_code}}
+                <hr>
+                Contact Number : {{obj.mobile_number}}
+                <hr>
+                State : {{obj.state}}
+                <hr>
+                Gender : {{obj.gender}}
+                <hr>
+                Hobbies : {{obj.hobbies}}
+                Date of Birth : {{obj.dob}}
+                <hr>
+                Marrital status : {{obj.marrital_status}}
+                <hr>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,57 @@
+{% extends 'Emp_profile/base.html'%}
+{% block content %}
+<br><br><br><br>
+<div class="container">
+    <div class="carousel-item active">
+        <div class="carousel-container">
+            <div class="animate__animated animate__fadeInDown">
+                <h2>Leave List</h2>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Employee Id</th>
+                        <th scope="col">Leave Type</th>
+                        <th scope="col">Days of leave</th>
+                        <th scope="col">Start Date</th>
+                        <th scope="col">End Date</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for emp in leave %}
+                    <tr>
+
+                        <td>{{ emp.employee_id }}</td>
+                        <td>{{emp.type_of_leave}}</td>
+                        <td>
+                            <p class="date">
+                                For {{ emp.days_of_leave }} Days
+                            </p>
+                        </td>
+                        <td scope="row">
+                            {{emp.start_date}}
+                        </td>
+                        <td scope="row">
+                            {{emp.end_date}}
+                        </td>
+
+                        <td>
+                            <a href="{% url 'Emp_profile:approve_leave' emp.employee_id %}">Approve</a>
+                        </td>
+                        <td>
+                            <a href="{% url 'Emp_profile:deny_leave' emp.employee_id %}">Deny</a>
+                        </td>
+
+                    </tr>
+                    {% endfor%}
+                    </tbody>
+                </table>
+                <div align="center">
+                    <a href="{% url 'Emp_profile:approved_leave_list' %}">Approved Leave List</a><br>
+                    <a href="{% url 'Emp_profile:dined_leave_list' %}">Dined Leave List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

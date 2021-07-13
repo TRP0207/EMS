@@ -1,0 +1,35 @@
+{% extends "home.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<br><br><br><br><br><br><br><br>
+<div align="center">
+    <div class="carousel-item active">
+        <div class="carousel-container">
+            <form class="animate__animated animate__fadeInDown" method="post" novalidate>
+                <h2>Log-In Here</h2>
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        {{login_form.username|as_crispy_field}}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        {{login_form.password|as_crispy_field}}
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <br><br>
+                <a href={% url 'password_reset' %}>Forgot password?</a>
+            </form>
+
+        </div>
+    </div>
+</div>
+<style>
+    input {max-width: 17em};
+</style>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'Emp_profile/base.html'%}
+{% block content %}
+<br><br><br><br>
+<div class="container">
+    <div class="carousel-item active">
+        <div class="carousel-container">
+            <div class="animate__animated animate__fadeInDown">
+                <h2>Denied Leave List</h2>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Employee Id</th>
+                        <th scope="col">Leave Type</th>
+                        <th scope="col">Days of leave</th>
+                        <th scope="col">Start Date</th>
+                        <th scope="col">End Date</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for emp in leave %}
+                    <tr>
+
+                        <td>{{ emp.employee_id }}</td>
+                        <td scope="row">{{emp.type_of_leave}}</td>
+                        <td>
+                            <p class="date">
+                                For {{ emp.days_of_leave }} Days
+                            </p>
+                        </td>
+                        <td scope="row">
+                            {{emp.start_date}}
+                        </td>
+                        <td scope="row">
+                            {{emp.end_date}}
+                        </td>
+                    </tr>
+                    {% endfor%}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
